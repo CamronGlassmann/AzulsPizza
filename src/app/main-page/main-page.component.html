@@ -1,0 +1,53 @@
+<div class="buttonGroup">
+    <button type="button" class="w-22 btn btn-outline-info buttonSpace" (click)="showMainPage()"> Main</button>
+    <button type="button" class="w-22 btn btn-outline-info buttonSpace" (click)="showDeals()"> Deals</button>
+    <button type="button" class="w-22 btn btn-outline-info buttonSpace" (click)="showBuilder()"> Pizza Builder</button>
+    <button type="button" class="btn btn-outline-info shoppingButton" (click)="showCart()"> <img class='shoppingIcon' src={{shoppingCart}}> ${{total | number : '.2-2'}}
+    </button>
+</div>
+
+<div *ngIf="displayCart">
+    <app-shopping-cart-card></app-shopping-cart-card>
+</div>
+
+<div class="d-flex pizzaCardParent" *ngIf="displayMain">
+    <h3 class="w-100">Featured Pies </h3>
+
+    <div class="w-30 pizzaCard" *ngFor="let pizza of lister">
+        <div class="w-30" *ngIf= "pizza.price > 10">
+        <app-pizza-card 
+        [tempPizza]="pizza"
+        ></app-pizza-card>
+    </div>
+    </div>
+    <h3 class="w-100 fanFavPizzaCardBuilder">Fan Favorites </h3>
+    <div class="w-30 pizzaCard" *ngFor="let pizza of lister">
+        <div *ngIf= "pizza.fanFav == true">
+            <app-pizza-card 
+            [tempPizza]="pizza"
+            ></app-pizza-card>
+        </div>
+    </div>
+
+</div>
+
+<div class="pizzaCardBuilder" *ngIf="displayPizzaBuilder">
+    <app-pizza-builder></app-pizza-builder>
+</div>
+
+<div class="d-flex pizzaCardParent" *ngIf="displayDeal">
+    <!-- Will need some condition to show pizzas under $10 -->
+    <div>
+        <app-bundle></app-bundle>
+    </div>
+    <br><br>
+    <h3 class="w-100">$10 and under</h3>
+<div class="pizzaCard" *ngFor="let pizza of lister">
+    <div class="w-30" *ngIf= "pizza.price <= 10">
+        <app-pizza-card
+        [tempPizza]="pizza"
+        ></app-pizza-card>
+    </div>
+</div>
+</div>
+

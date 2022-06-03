@@ -1,0 +1,20 @@
+img{
+    width: 125px ;
+    height: 125px;
+}
+.card1 {
+    display: inline-block;
+}
+button{
+    margin-top: 50px;
+}
+.sizer{
+    height: 500px;
+    width: 300px;
+}
+.card{
+    border: 2px solid darkblue;
+    color: black;
+    font-weight:500;
+    font-size: large;
+}

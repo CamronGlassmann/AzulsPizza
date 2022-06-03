@@ -1,0 +1,187 @@
+<div>
+    Base Price: $12
+</div>
+<form>
+    <table action="/action_page.php">
+        <tr>
+            <th>Crust:</th>
+        </tr>
+        <tr>
+            <td>
+                <mat-button-toggle-group [(ngModel)]="customPizza.crust" name="crust" aria-label="crust" required>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.crust == 'Hand Tossed' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Hand Tossed">Hand Tossed</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.crust == 'Pan' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Pan">Light</mat-button-toggle>
+                </mat-button-toggle-group>
+            </td>
+        </tr>
+        <tr>
+            <th>Sauce: </th>
+        </tr>
+        <tr>
+            <td>
+                <mat-button-toggle-group [(ngModel)]="customPizza.sauce" name="sauce" aria-label="sauce" required>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.sauce == 'None' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="None">None</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.sauce == 'Light' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Light">Light</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.sauce == 'Regular' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Regular">Regular</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.sauce == 'Extra' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Extra">Extra</mat-button-toggle>
+                </mat-button-toggle-group>
+            </td>
+        </tr>
+        <tr>
+            <th>Cheese (Mozzarella): </th>
+        </tr>
+        <tr>
+            <td>
+                <mat-button-toggle-group [(ngModel)]="customPizza.cheese" name="cheese" aria-label="cheese" required>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.cheese == 'None' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="None">None</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.cheese == 'Light' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Light">Light</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.cheese == 'Regular' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Regular">Regular</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="customPizza.cheese == 'Extra' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Extra">Extra</mat-button-toggle>
+                </mat-button-toggle-group>
+
+            </td>
+        </tr>
+        <tr>
+            <th>Toppings ($1 per Topping) </th>
+        </tr>
+        <tr>
+            <th>Meats: </th>
+        </tr>
+        <tr>
+            <div class="d-flex toppings">
+                <div class="w-200">
+                    <input [(ngModel)]="pepperoni" type="checkbox" class="btn-check" value="Pepperoni" name="meats"
+                        id="Pepperoni" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="pepperoni == true ? 'button1' : 'button2'"
+                        for="Pepperoni">Pepperoni</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="italianSausage" type="checkbox" class="btn-check" value="Italian Sausage"
+                        name="meats" id="ItalianSausage" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="italianSausage == true ? 'button1' : 'button2'"
+                        for="ItalianSausage">Italian Sausage</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="bacon" type="checkbox" class="btn-check" value="Bacon" name="meats" id="Bacon"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="bacon == true ? 'button1' : 'button2'"
+                        for="Bacon">Bacon</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="meatball" type="checkbox" class="btn-check" value="Meatball" name="meats"
+                        id="Meatball" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="meatball == true ? 'button1' : 'button2'"
+                        for="Meatball">Meatball</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="ham" type="checkbox" class="btn-check" value="Ham" name="meats" id="Ham"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="ham == true ? 'button1' : 'button2'"
+                        for="Ham">Ham</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="beef" type="checkbox" class="btn-check" value="Beef" name="meats" id="Beef"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="beef == true ? 'button1' : 'button2'"
+                        for="Beef">Beef</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="pork" type="checkbox" class="btn-check" value="Pork" name="meats" id="Pork"
+                        autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="pork == true ? 'button1' : 'button2'"
+                        for="Pork">Pork</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="chicken" type="checkbox" class="btn-check" value="Chicken" name="meats"
+                        id="Chicken" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="chicken == true ? 'button1' : 'button2'"
+                        for="Chicken">Chicken</label>
+                </div>
+            </div>
+        </tr>
+        <tr>
+            <th>Veggies: </th>
+        </tr>
+        <tr>
+            <div class="d-flex toppings">
+                <div class="w-200">
+                    <input [(ngModel)]="blackOlives" type="checkbox" class="btn-check" value="Black Olives"
+                        name="veggies" id="BlackOlives" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="blackOlives == true ? 'button1' : 'button2'"
+                        for="BlackOlives">Black Olives</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="greenOlives" type="checkbox" class="btn-check" value="Green Olives"
+                        name="veggies" id="GreenOlives" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="greenOlives == true ? 'button1' : 'button2'"
+                        for="GreenOlives">Green Olives</label>
+                </div>
+
+                <div class="w-200">
+                    <input [(ngModel)]="pineapple" type="checkbox" class="btn-check" value="Pineapple" name="veggies"
+                        id="Pineapple" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="pineapple == true ? 'button1' : 'button2'"
+                        for="Pineapple">Pineapple</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="onions" type="checkbox" class="btn-check" value="Onions" name="veggies"
+                        id="Onions" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="onions == true ? 'button1' : 'button2'"
+                        for="Onions">Onions</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="mushroom" type="checkbox" class="btn-check" value="Mushrooms" name="veggies"
+                        id="Mushrooms" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="mushroom == true ? 'button1' : 'button2'"
+                        for="Mushrooms">Mushrooms</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="bananaPeppers" type="checkbox" class="btn-check" value="Banana Peppers"
+                        name="veggies" id="BananaPeppers" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="bananaPeppers== true ? 'button1' : 'button2'"
+                        for="BananaPeppers">Banana Peppers</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="greenPeppers" type="checkbox" class="btn-check" value="GreenPeppers"
+                        name="veggies" id="GreenPeppers" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="greenPeppers== true ? 'button1' : 'button2'"
+                        for="GreenPeppers">Green Peppers</label>
+                </div>
+                <div class="w-200">
+                    <input [(ngModel)]="jalapenos" type="checkbox" class="btn-check" value="Jalapenos" name="veggies"
+                        id="Jalapenos" autocomplete="off">
+                    <label class="btn btn-outline-primary" [ngClass]="jalapenos == true ? 'button1' : 'button2'"
+                        for="Jalapenos">Jalapenos</label>
+                </div>
+            </div>
+        <tr>
+            <th>
+                <button type="submit" (click)="onSubmit()">Add to Cart</button>
+            </th>
+        </tr>
+    </table>
+</form>
+<div class="modal-container" *ngIf="tooManyToppings">
+    <h1>Error: too many toppings selected. Please select 5 or less</h1>
+    <button (click)="closeModal()">Close</button>
+</div>

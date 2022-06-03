@@ -1,0 +1,109 @@
+<div class="d-flex maxer">
+    <div class="container w-100">
+        <h1>Deals <br></h1>
+    </div>
+    <div class="pizzaSingle w-30">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="display-4 centerText">Pizza and Pop </h2>
+                <label for="pizzaChoice">Choose a Pizza: </label>
+                <select name="pizzaChoice" id="pizzaChoice" [(ngModel)]='tempPizzaId' (change)="updatePizza()">
+                    <option [value]="pizza.id" *ngFor="let pizza of tempPizzaList">
+                        {{pizza.name}}
+                    </option>
+                </select>
+                <div class="row">
+                    <div class="col-sm">
+                        <img src={{tempPizza.img}}>
+                    </div>
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-success" (click)="addPizzaPop()"> Add </button>
+                    </div>
+                    <h5 class="card-title">$ {{pricedOut}}, {{tempPizza.name}} </h5>
+                    <p class="card-subtitle mb-2 text-muted">Description: {{tempPizza.desciption}}</p>
+                    <label for="popChoice">Choose a Pop: </label>
+                    <select name="popChoice" id="popChoice" [(ngModel)]='updatedPizzaPopPriceId' (change)="updatePrice()">
+                        <option [value]="pop.id" *ngFor="let pop of otherMenu">
+                            {{pop.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pizzaSingle w-30">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="display-4 centerText">2 Pizzas and Pop </h2>
+                <label for="pizzaDouble1Choice">Choose a Pizza: </label>
+                <select name="pizzaDouble1Choice" id="pizzaDouble1Choice" [(ngModel)]='tempPizzaDouble1Id'
+                    (change)="updatePizzaDouble()">
+                    <option [value]="pizza.id" *ngFor="let pizza of tempPizzaList">
+                        {{pizza.name}}
+                    </option>
+                </select>
+                <label for="pizzaDouble2Choice">Choose a Pizza: </label>
+                <select name="pizzaDouble2Choice" id="pizzaDouble2Choice" [(ngModel)]='tempPizzaDouble2Id'
+                    (change)="updatePizzaDouble()">
+                    <option [value]="pizza.id" *ngFor="let pizza of tempPizzaList">
+                        {{pizza.name}}
+                    </option>
+                </select>
+                <div class="row">
+                    <div class="col-sm">
+                        <img class="smallImg" src={{tempPizzaDoubleList[0].img}}>
+                        <img class="smallImg" src={{tempPizzaDoubleList[1].img}}>
+                    </div>
+                    <div class="col-sm">
+                        <button type="button" class="btn btn-success" (click)="addDoublePizza()"> Add </button>
+                    </div>
+                    <h5 class="card-title">$ {{pricedOutDouble}}, {{tempPizzaDoubleList[0].name}},
+                        {{tempPizzaDoubleList[1].name}} </h5>
+                    <p class="card-subtitle mb-2 text-muted">{{tempPizzaDoubleList[0].name}} Description:
+                        {{tempPizzaDoubleList[0].desciption}} <br> <br>
+                        {{tempPizzaDoubleList[1].name}} {{tempPizzaDoubleList[1].desciption}}</p>
+                    <label for="doublePopChoice">Choose a Pop: </label>
+                    <select name="doublePopChoice" id="doublePopChoice" [(ngModel)]='updatedDoublePriceId'
+                        (change)="updatePizzaDouble()">
+                        <option [value]="pops.id" *ngFor="let pops of otherMenu">
+                            {{pops.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="pizzaSingle w-30">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="display-4 centerText">1 Topping Pizza and Pop </h2>
+                    <label for="pizzaSingleToppingChoice">Choose a Topping: </label>
+                    <select name="pizzaSingleToppingChoice" id="pizzaSingleToppingChoice"
+                        [(ngModel)]='toppingChoice' (change)="updatePizzaTopping()">
+                        <option [value]="topping" *ngFor="let topping of toppings">
+                            {{topping}}
+                        </option>
+                    </select>
+                    <div class="row">
+                        <div class="col-sm">
+                            <img src={{tempPizzaList[0].img}}>
+                        </div>
+                        <div class="col-sm">
+                            <button type="button" class="btn btn-success" (click)="addSingleToppingPizza()"> Add
+                            </button>
+                        </div>
+                        <h5 class="card-title">$ {{pricedOutSingleTopping}}, Single Topping Pizza </h5>
+                        <p class="card-subtitle mb-2 text-muted">Description: Starts with our base cheese pizza adding
+                            one topping of your choice <br> </p>
+                        <label for="singleToppingPopChoice">Choose a Pop: </label>
+                        <select name="singleToppingPopChoice" id="singleToppingPopChoice"
+                            [(ngModel)]='updatedSinglePriceId' (change)="updateSingleToppingPrice()">
+                            <option [value]="pops.id" *ngFor="let pops of otherMenu">
+                                {{pops.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

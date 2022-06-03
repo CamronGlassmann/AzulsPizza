@@ -1,0 +1,71 @@
+<div style="position: absolute; left: 10%;">
+    <div class="title">SHOPPING CART</div>
+    <div *ngIf="!delivery">
+        <div class="cardpostion" *ngIf="!displayCheckout">
+            <div class="card" style="width: 35rem;">
+                <div *ngIf="!displayNoPizza">
+                    <p>You have no pizza inside the cart </p>
+                </div>
+                <div class="list">
+                    <li *ngFor="let item of cartList">
+                        <span>{{item.name}} ${{item.price}}</span>
+                        <p> Desciption: {{item.desciption}}</p>
+                        <div style="  margin-bottom: 1em;">
+                            <mat-button-toggle-group>
+                                <mat-button-toggle class="buttonR" (click)="removeItem(item)" value="remove">Remove Item
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </li>
+                </div>
+                <div class="subtotal">subtotal: ${{subtotal | number : '.2-2'}} </div>
+            </div>
+        </div>
+        <form>
+            <div class="cardpostion" *ngIf="displayCheckout">
+                <div>
+                    Type of Payment (to be paid upon revcieving order): <br>
+                </div>
+                <mat-button-toggle-group [(ngModel)]="cashOrCard" name="checkoutPay" aria-label="checkout" required>
+                    <mat-button-toggle [ngClass]="cashOrCard == 'Cash' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Cash">Cash</mat-button-toggle>
+                    <mat-button-toggle [ngClass]="cashOrCard == 'Card' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Card">Card</mat-button-toggle>
+                </mat-button-toggle-group> <br>
+                <div>
+                    Delivery or Pickup? <br>
+                </div>
+                <mat-button-toggle-group [(ngModel)]="deliveryOrPickup" name="checkoutDelivery" aria-label="checkout"
+                    required>
+                    <mat-button-toggle
+                        [ngClass]="deliveryOrPickup == 'Delivery' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Delivery">Delivery</mat-button-toggle>
+                    <mat-button-toggle
+                        [ngClass]="deliveryOrPickup == 'Pickup' ? 'mat-button-toggle1' : 'mat-button-toggle2'"
+                        value="Pickup">Pickup</mat-button-toggle>
+                </mat-button-toggle-group><br>
+                <button class="btn btn-success" (click)="submit()"> Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="cardpostion" *ngIf="delivery">
+        <strong>Please Enter Address</strong>
+        <input type="text" id="address" [(ngModel)]="address" placeholder="Address"><br>
+        <input type="text" id="city" [(ngModel)]="city" placeholder="City"><br>
+        <input type="text" id="state" [(ngModel)]="state" placeholder="State"><br>
+        <input type="text" id="zip" [(ngModel)]="zip" placeholder="Zip"><br>
+        <button class="btn btn-success" (click)="submitDel()">Submit</button>
+    </div>
+    <div>
+        <div class="checkout">
+            <div class="card" style="width: 20rem;">
+                <div class="checkoutBox">
+                    <div> subotal ${{subtotal | number : '.2-2'}}</div>
+                    <div> tax ${{tax | number : '.2-2'}}</div>
+                    <div> total ${{total | number : '.2-2'}}</div>
+                    <button class="btn btn-success" (click)="checkout()"> checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
